@@ -30,7 +30,7 @@ class TokenDecoder
         Rails.logger.warn("User not registered")
         raise NotRegisteredError 
       end
-      return jwt
+      return jwt[0]
     rescue JWT::VerificationError
       Rails.logger.warn("Verification error")
       raise
