@@ -6,7 +6,7 @@ Please <%= link_to "register", register_path %> or <%= link_to "login", login_pa
 Please <%= link_to "logout", logout_path %>.
 <% end %>
 
-<% if session[:user_jwt]["value"]["authenticationType"] == "WebAuthn" %>
+<% if session[:user_jwt] && session[:user_jwt]["value"]["authenticationType"] == "WebAuthn" %>
 <img src='<%= asset_path('carpet.png')%>' width="200" />
 <% end %>
 </p>
