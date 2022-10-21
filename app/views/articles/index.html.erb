@@ -1,4 +1,11 @@
-<h4>Protected content</h4>
+<h4>Welcome</h4>
 <p>
-Here's a list of protected content.
+<a href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn'>Set up WebAuthn</a> to get VIP entrance to the party.
+
+</p>
+<h4>Downloads</h4>
+<p>
+<a download href='<%= asset_path("complete_list_oauth2_grants.pdf") %>'><img src='<%= asset_path("completelistgrants.png")%>' width="150" /></a>
+<a download href='<%= asset_path("login_authentication_workflows.pdf") %>'><img src='<%= asset_path('loginauthworkflows.png')%>' width="150" /></a>
+<a download href='<%= asset_path("the-modern-guide-to-oauth.pdf") %>'><img src='<%= asset_path('oauthebook.png')%>' width="150" /></a>
 </p>
