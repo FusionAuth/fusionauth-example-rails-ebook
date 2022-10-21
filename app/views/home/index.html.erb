@@ -1,8 +1,12 @@
-<h4>Welcome to the FusionAuth DEMO application</h4>
+<h4>Welcome to the FusionAuth Demo application</h4>
 <p>
 <% if session[:user_jwt].nil? %>
 Please <%= link_to "register", register_path %> or <%= link_to "login", login_path %>. 
 <% else %>
 Please <%= link_to "logout", logout_path %>.
+<% end %>
+
+<% if session[:user_jwt]["value"]["authenticationType"] == "WebAuthn" %>
+<img src='<%= asset_path('carpet.png')%>' width="200" />
 <% end %>
 </p>
