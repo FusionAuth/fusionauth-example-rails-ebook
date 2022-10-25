@@ -1,24 +1,27 @@
-# README
+# An ebook download app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app shows off the customizability of the FusionAuth interface as well as the way it can be similar to the application.
 
-Things you may want to cover:
+You can log in or register with any address and you'll be able to download ebooks.
 
-* Ruby version
+## To deploy
 
-* System dependencies
+Push the code to the repo. The repo must be public unless you want to add Render as a GitHub app. This required admin permissions on the org, so I opted for a public app.
 
-* Configuration
+Log in to render.com. The account is in the password vault.
 
-* Database creation
+On the dashboard, choose the FusionAuth team.
 
-* Database initialization
+Click on the 'fusionauth' app.
 
-* How to run the test suite
+Click on 'manual deploy'.
 
-* Services (job queues, cache servers, search engines, etc.)
+Click on 'deploy latest commit'.
 
-* Deployment instructions
+Then, wait for the app to be built.
 
-* ...
+It should be live on ebook.fusionauth.io when you are done.
+
+## Local development
+
+You can modify config/environments/development.rb, in particular the oauth settings, to point to a local FusionAuth instance.
