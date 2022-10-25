@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Confapp</title>
+    <title>FusionAuth Demo App</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -32,7 +32,14 @@
 <% if session[:user_jwt].nil? %>
 <%= link_to "register", register_path %> | <%= link_to "login", login_path %>
 <% else %>
-<%= link_to "logout", logout_path %> | <a href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn'>set up webauthn</a>
+<%= link_to "home", root_path %> | <%= link_to "books", articles_path %> 
+<% unless session[:user_jwt] && session[:user_jwt]["value"]["authenticationType"] == "WebAuthn" %>
+| <a href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn'>set up webauthn</a>
+<% end %>
+| <%= link_to "logout", logout_path %>
+</p>
+
+
 <% end %>
   </main>
 </div>
