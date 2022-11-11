@@ -43,7 +43,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <% else %>
 <%= link_to "home", root_path %> | <%= link_to "books", articles_path %> 
 <% unless session[:user_jwt] && session[:user_jwt]["value"]["authenticationType"] == "WebAuthn" %>
-| <a href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn?client_id=<%=Rails.configuration.x.oauth.client_id%>'>set up webauthn</a>
+| <a href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn/?client_id=<%=Rails.configuration.x.oauth.client_id%>'>set up webauthn</a>
 <% end %>
 | <%= link_to "logout", logout_path %>
 </p>

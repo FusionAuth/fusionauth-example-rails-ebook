@@ -3,6 +3,6 @@ You're a VIP! Please show this to the nearest FusionAuth team member for a compl
   <img src='<%= asset_path('carpet.png')%>' width="200" />
 <% else %>
   <% if session[:user_jwt] %>
-    <a href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn?client_id=<%=Rails.configuration.x.oauth.client_id%>'>Set up WebAuthn</a> to get VIP entrance to the party.
+    <a href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn/?client_id=<%=Rails.configuration.x.oauth.client_id%>'>Set up WebAuthn</a> to get VIP entrance to the party.
   <% end %>
 <% end %>
