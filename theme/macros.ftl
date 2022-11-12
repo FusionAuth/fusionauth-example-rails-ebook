@@ -259,7 +259,7 @@
         [/#if]
       [/#if]
       [#if actionDirection == "back"]
-        <a href="${actionURL}"> <i class="fa fa-arrow-left"></i> ${actionTexts[url_index]}</a>
+        <a href="https://ebook.fusionauth.io/"> <i class="fa fa-arrow-left"></i> ${actionTexts[url_index]}</a>
       [#else]
         <a class="d-inline-block mb-2" href="${actionURL}">${actionTexts[url_index]} <i class="fa fa-arrow-right"></i></a>
       [/#if]
