@@ -1,4 +1,4 @@
-<% if session[:user_jwt] && (session[:user_jwt]["value"]["authenticationType"] == "WebAuthn" or session[:user_jwt]["value"]["email"] == "foo123@test.com") %>
+<% if session[:used_webauthn] %>
 You're a VIP! Please show this to the nearest FusionAuth team member for a complimentary high five and/or early entry to the party.<br/></br>
   <img src='<%= asset_path('carpet.png')%>' width="200" />
 <% else %>
