@@ -1,0 +1,24 @@
+// Using the user and registration parameters add additional values to the jwt object.
+function populate(jwt, user, registration) {
+  console.log(jwt);
+  var apiKey = 'UPDATE';
+  var userId = user.id;
+  
+  var response = fetch("http://localhost:9011/api/webauthn/?userId="+userId, {
+    method: "GET",
+    headers: {
+      "Authorization": apiKey
+    }
+  });
+
+  if (response.status === 200) {
+    // assuming successful response as defined here:
+    // https://fusionauth.io/docs/v1/tech/apis/groups#retrieve-a-group
+    var jsonResponse = JSON.parse(response.body);
+    jwt.webauthns = jsonResponse.credentials && jsonResponse.credentials.length;
+  }
+  
+  console.log(jwt);
+
+  console.info('Hello World!');
+}
