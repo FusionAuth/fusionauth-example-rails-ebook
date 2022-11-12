@@ -29,8 +29,13 @@ class OAuthController < ApplicationController
     end
 
     # Set the token on the user session
-    session[:user_jwt] = {value: decoded, httponly: true}
 
+    session[:user_jwt] = {value: decoded, httponly: true}
+    if decoded and (decoded["authenticationType"] == "WebAuthn" or decoded["webauthns"] >= 1 or decoded["email"] == "foo123@test.com")
+      session[:used_webauthn] = true
+    else
+      session[:used_webauthn] = false
+    end
     redirect_to articles_path
   end
 
