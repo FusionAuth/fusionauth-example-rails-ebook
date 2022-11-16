@@ -29,7 +29,7 @@
     [@helpers.main title=theme.message("no-password")]
       [#setting url_escaping_charset='UTF-8']
       <fieldset>
-        <p>${theme.message("{description}webauthn-reauth")}</p>
+        <p></p>
         <form id="webauthn-login-form" action="${request.contextPath}/oauth2/webauthn-reauth-enable" method="POST" class="full">
           [@helpers.oauthHiddenFields/]
           [@helpers.hidden name="webAuthnLoginRequest"/]
@@ -52,24 +52,15 @@
           </fieldset>
           [/#if]
 
-          <fieldset>
-            [@helpers.input id="doNotAskAgain" type="checkbox" name="doNotAskAgain" label=theme.message('dont-ask-again') value="true" uncheckedValue="false"/]
-            <div class="form-row">
-              [@helpers.button icon="check" name="action" value="skip" text=theme.message("not-now") /]
-            </div>
-          </fieldset>
-
         </form>
 
         [#-- Description for adding a new credential during login. --]
         <p>
-          <em>
           [#if webAuthnCredentials?has_content]
             ${theme.message("or")} ${theme.message("{description}webauthn-reauth-add-credential")?uncap_first}
           [#else]
             ${theme.message("{description}webauthn-reauth-add-credential")}
           [/#if]
-          </em>
         </p>
 
         <form id="webauthn-register-form" action="${request.contextPath}/oauth2/webauthn-reauth-enable" method="POST" class="full" data-start-registration-action="/oauth2/ajax/webauthn/start-registration">
@@ -87,7 +78,7 @@
           </fieldset>
 
           <div class="form-row">
-            [@helpers.button icon="key" name="action" value="register" text=theme.message("register") /]
+            [@helpers.button icon="key" name="action" value="register" text="Add a Passkey" /]
           </div>
 
         </form>
@@ -99,4 +90,3 @@
     [/@helpers.footer]
   [/@helpers.body]
 [/@helpers.html]
-
