@@ -63,11 +63,6 @@
         [@helpers.hidden name="parentEmailRequired"/]
         [@helpers.hidden name="userVerifyingPlatformAuthenticatorAvailable"/]
 
-        [#-- Show the Password Validation Rules if there is a field error for 'user.password' --]
-        [#if (fieldMessages?keys?seq_contains("user.password")!false) && passwordValidationRules??]
-          [@helpers.passwordRules passwordValidationRules/]
-        [/#if]
-
         [#-- Begin Self Service Custom Registration Form Steps --]
         [#if fields?has_content]
           <fieldset>
