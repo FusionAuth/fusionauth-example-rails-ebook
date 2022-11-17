@@ -54,7 +54,7 @@
           </fieldset>
 
           <div class="form-row">
-            [@helpers.button icon="key" name="action" value="register" text="Add a Passkey" /]
+            [@helpers.button icon="key" name="action" value="register" text="Add a passkey" /]
           </div>
 
         </form>
