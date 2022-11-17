@@ -30,30 +30,6 @@
       [#setting url_escaping_charset='UTF-8']
       <fieldset>
         <p></p>
-        <form id="webauthn-login-form" action="${request.contextPath}/oauth2/webauthn-reauth-enable" method="POST" class="full">
-          [@helpers.oauthHiddenFields/]
-          [@helpers.hidden name="webAuthnLoginRequest"/]
-          [@helpers.hidden name="workflow" value="reauthentication"/]
-
-          [#if webAuthnCredentials?has_content]
-          <p><em>${theme.message("{description}webauthn-reauth-existing-credential")}</em></p>
-          <fieldset class="mt-3 hover push-bottom">
-            [#list webAuthnCredentials![] as credential]
-             <button class="chunky-wide-submit" name="credentialId" value="${credential.id}">
-                <span>
-                  <span>${helpers.display(credential, "displayName")}</span>
-                  <span class="sub-text">
-                    ${theme.message("last-used")}
-                    ${theme.formatZoneDateTime(credential.lastUseInstant, theme.message('date-format'), zoneId)}</span>
-                </span>
-                <i class="fa fa-chevron-right"></i>
-              </button>
-            [/#list]
-          </fieldset>
-          [/#if]
-
-        </form>
-
         [#-- Description for adding a new credential during login. --]
         <p>
           [#if webAuthnCredentials?has_content]
@@ -80,6 +56,37 @@
           <div class="form-row">
             [@helpers.button icon="key" name="action" value="register" text="Add a Passkey" /]
           </div>
+
+        </form>
+
+        [#-- The 'no thanks' section --]
+        <form id="webauthn-login-form" action="${request.contextPath}/oauth2/webauthn-reauth-enable" method="POST" class="full">
+          [@helpers.oauthHiddenFields/]
+          [@helpers.hidden name="webAuthnLoginRequest"/]
+          [@helpers.hidden name="workflow" value="reauthentication"/]
+
+          [#if webAuthnCredentials?has_content]
+          <p><em>${theme.message("{description}webauthn-reauth-existing-credential")}</em></p>
+          <fieldset class="mt-3 hover push-bottom">
+            [#list webAuthnCredentials![] as credential]
+             <button class="chunky-wide-submit" name="credentialId" value="${credential.id}">
+                <span>
+                  <span>${helpers.display(credential, "displayName")}</span>
+                  <span class="sub-text">
+                    ${theme.message("last-used")}
+                    ${theme.formatZoneDateTime(credential.lastUseInstant, theme.message('date-format'), zoneId)}</span>
+                </span>
+                <i class="fa fa-chevron-right"></i>
+              </button>
+            [/#list]
+          </fieldset>
+          [/#if]
+
+          <fieldset>
+             <div class="form-row">
+               [@helpers.button icon="check" name="action" value="skip" text="Take me to the books" /]
+             </div>
+          </fieldset>
 
         </form>
       </fieldset>
