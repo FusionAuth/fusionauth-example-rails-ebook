@@ -15,6 +15,6 @@ Please show this to the nearest FusionAuth team member for a complimentary high 
 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3223.4868149304325!2d-115.16691098417057!3d36.105995980097454!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c8c44abefc3203%3A0x2b62b1ca130867cf!2sTopgolf!5e0!3m2!1sen!2sus!4v1668639763704!5m2!1sen!2sus" width="440" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 <% else %>
   <% if session[:user_jwt] %>
-    <a class="blue button" href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn/?client_id=<%=Rails.configuration.x.oauth.client_id%>'>Get VIP party access by adding a passkey</a>
+    <a class="blue button" href='<%= Rails.configuration.x.oauth.idp_url%>/account/webauthn/?client_id=<%=Rails.configuration.x.oauth.client_id%>'>Get VIP party access</a>
   <% end %>
 <% end %>
