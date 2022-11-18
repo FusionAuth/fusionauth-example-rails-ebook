@@ -31,10 +31,9 @@
 
     [@helpers.accountMain rowClass="row center" colClass="col-xs-12 col-sm-12 col-md-10 col-lg-8" actionURL="/account/webauthn/" actionText=theme.message("go-back")]
       [@helpers.accountPanelFull]
-
         <fieldset>
           <legend>${theme.message("add-webauthn-passkey")}</legend>
-          <p><em>${theme.message("{description}add-webauthn")}</em></p>
+          <p>${theme.message("{description}add-webauthn")}</p>
           <p id="no-webauthn-support" class="hidden">
             <em>
               <strong>${theme.message("warning")}${theme.message("propertySeparator")}</strong>

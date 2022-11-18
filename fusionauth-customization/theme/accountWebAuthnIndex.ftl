@@ -31,7 +31,7 @@
 
         <fieldset>
           <legend>${theme.message("passkeys")}</legend>
-          <p><em>${theme.message("{description}webauthn-passkeys")}</em></p>
+          <p>${theme.message("{description}webauthn-passkeys")}</p>
           <p id="no-webauthn-support" class="hidden">
             <em>
               <strong>${theme.message("warning")}${theme.message("propertySeparator")}</strong>
